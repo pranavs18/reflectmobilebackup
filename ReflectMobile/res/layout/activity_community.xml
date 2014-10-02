@@ -1,0 +1,58 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"
+        android:paddingTop="8dp"
+        tools:context="com.reflectmobile.activity.CommunityActivity"
+        tools:ignore="MergeRootFrame" >
+
+        <GridView
+            android:id="@+id/gridview_community_people_name_list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:columnWidth="70dp"
+            android:gravity="center"
+            android:horizontalSpacing="8dp"
+            android:numColumns="auto_fit"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="8dp" 
+            android:paddingBottom="8dp"/>
+
+        <ListView
+            android:id="@+id/listview_community_card_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/gridview_community_people_name_list"
+            android:layout_marginLeft="10dp"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="8dp" 
+            android:paddingBottom="8dp"
+            android:scrollbarStyle="outsideInset">
+        </ListView>
+    </RelativeLayout>
+
+    <!-- The navigation drawer -->
+
+    <ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/side_menu_bg"
+        android:choiceMode="singleChoice"
+        android:divider="@color/side_menu_divider"
+        android:dividerHeight="1dp" >
+    </ListView>
+
+</android.support.v4.widget.DrawerLayout>

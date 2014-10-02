@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_speech_to_text"
+        android:showAsAction="always"
+        android:icon="@drawable/mic_small"
+        android:title="@string/action_speech_to_text"/>
+    <item
+        android:id="@+id/action_add_story"
+        android:showAsAction="always"
+        android:title="@string/add"/>
+
+</menu>

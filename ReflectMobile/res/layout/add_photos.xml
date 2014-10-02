@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".activity.PhotoActivity" >
+
+    <LinearLayout
+        android:id="@+id/top_panel"
+        android:layout_width="match_parent"
+        android:layout_height="205dp"
+        android:background="@drawable/bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48dp"
+            android:layout_marginRight="48dp"
+            android:layout_marginTop="48dp"
+            android:background="@color/white" >
+
+            <Spinner
+                android:id="@+id/community"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="11dp"
+                android:paddingTop="11dp"
+                android:spinnerMode="dropdown" >
+
+                <requestFocus />
+            </Spinner>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="48dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginRight="48dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/white" >
+
+            <Spinner
+                android:id="@+id/moment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="11dp"
+                android:paddingTop="11dp"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <GridView
+        android:id="@+id/selected_images"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/top_panel"
+        android:layout_marginBottom="3dp"
+        android:layout_marginLeft="58dp"
+        android:layout_marginRight="58dp"
+        android:layout_marginTop="3dp"
+        android:horizontalSpacing="16dp"
+        android:numColumns="2"
+        android:orientation="vertical"
+        android:paddingTop="13dp"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="16dp" />
+
+</RelativeLayout>

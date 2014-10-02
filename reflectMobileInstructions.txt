@@ -1,0 +1,1 @@
+This repository contains the code for developing prototype for Reflect Mobile Android application. It has been developed by students of CMU in collaboration with David Palmer.

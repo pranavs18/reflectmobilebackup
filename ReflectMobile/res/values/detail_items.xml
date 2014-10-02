@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="detail_items">
+        <item>WAS FEELING</item>
+        <item>WAS ACTING</item>
+        <item>WAS BEEING</item>
+        <item>WAS LOOKING</item>
+        <item>WAS THINKING</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_edit_moment"
+        android:title="@string/action_edit_moment"/>
+    <item
+        android:id="@+id/action_delete_moment"
+        android:title="@string/action_delete_moment"/>
+    
+</menu>

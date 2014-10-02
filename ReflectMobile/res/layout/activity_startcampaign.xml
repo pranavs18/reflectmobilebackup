@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    tools:context=".activity.StartCampaignActivity" >
+ 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="48dp"
+        android:background="@color/white" >
+       
+         <Spinner
+            android:id="@+id/campaign"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="11dp"
+            android:paddingTop="11dp"
+            android:spinnerMode="dropdown" >
+
+            <requestFocus />
+        </Spinner>
+        
+    </LinearLayout>
+
+  
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="48dp"
+        android:background="@color/white" >
+       
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/apptheme_edit_text_holo_light"
+            android:gravity="left|top"
+            android:hint="Campaign Name"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColorHint="@android:color/black"
+            android:textColor="@color/black"
+            android:textCursorDrawable="@null"
+            tools:ignore="HardcodedText" >
+
+            <requestFocus />
+        </EditText> 
+      </LinearLayout>
+        
+      <LinearLayout 
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="48dp"
+          android:layout_marginRight="48dp"
+          android:layout_marginTop="48dp"
+          android:orientation="vertical"
+          >
+        <TextView
+             
+            android:layout_width="match_parent"
+            android:layout_marginLeft="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Start Date:">
+      
+        </TextView>
+    
+        <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="-34dp"
+        android:background="@color/white" >
+        
+        <EditText
+            android:id="@+id/startID"
+            android:layout_width="162dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/apptheme_edit_text_holo_light"
+            android:gravity="center"
+            android:hint="Start Date"
+            android:inputType="text"
+            android:textColorHint="@android:color/black"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textCursorDrawable="@null"
+            tools:ignore="HardcodedText" >
+
+            <requestFocus />
+           </EditText>     
+        </LinearLayout>
+    </LinearLayout>
+    
+      
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical">
+        
+        <TextView
+               
+            android:layout_width="match_parent"
+            android:layout_marginLeft="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="End Date:">
+      
+        </TextView>
+        
+        <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="-34dp"
+        android:background="@color/white" >
+         
+        <EditText
+            android:id="@+id/endID"
+            android:layout_width="162dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/apptheme_edit_text_holo_light"
+            android:gravity="center"
+            android:hint="End Date"
+            android:textColorHint="@android:color/black"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textCursorDrawable="@null"
+            tools:ignore="HardcodedText" >
+
+            <requestFocus />
+        </EditText> 
+    </LinearLayout>
+    </LinearLayout>
+    
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/white" >
+       
+        
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/apptheme_edit_text_holo_light"
+            android:gravity="left|top"
+            android:hint="Goal in $"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColorHint="@android:color/black"
+            android:textColor="@color/black"
+            android:textCursorDrawable="@null"
+            tools:ignore="HardcodedText" >
+
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
+    
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/white" >
+       
+        
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/apptheme_edit_text_holo_light"
+            android:gravity="left|top"
+            android:hint="Description in \n two lines"
+            android:inputType="text"
+            android:textColorHint="@android:color/black"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textCursorDrawable="@null"
+            tools:ignore="HardcodedText" >
+
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
+      
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:orientation="horizontal" >
+        
+         <ImageButton
+            android:id="@+id/add_photo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:selectableItemBackground"
+            android:contentDescription="@string/add_sound"
+            android:padding="8dp"
+            android:src="@drawable/add_photo" />
+         
+         <ImageButton
+            android:id="@+id/add_color"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?android:selectableItemBackground"
+            android:contentDescription="@string/add_tag"
+            android:padding="8dp"
+            android:src="@drawable/add_from_camera" />
+        
+        </LinearLayout>   
+
+</LinearLayout>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linear_donationView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="3dp" >
+
+        <TextView
+            android:id="@+id/dance_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/dance"/>
+
+        <Button
+            android:id="@+id/button_pig"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginTop="7dp"
+            android:background="#E44460"
+            android:drawableLeft="@drawable/pig_iconbig"
+            android:paddingLeft="11dp"
+            android:paddingRight="11dp"
+            android:text="@string/donate"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp" >
+
+        <TextView
+            android:id="@+id/text_campaign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="21dp"
+            android:text="@string/new_campaign"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_bitmap"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="120dp"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:contentDescription="@string/imageBitmap"
+            android:id="@+id/donationView"
+            android:layout_width="0dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="-5dp"
+            android:layout_weight="1.13"
+            android:src="@drawable/testimage" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="260dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/fundraising"
+            android:layout_width="293dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="23dp"
+            android:text="@string/fundraising" />
+
+        <TextView
+            android:id="@+id/text_tuned"
+            android:layout_width="263dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/tuned"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_donation_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="350dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/text_contributor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="22dp"
+            android:text="@string/contributor"
+            android:textColor="@color/green"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_divider7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="@string/divider"
+            android:textColor="@color/green" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_donation_sub"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="410dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/text_ellen"
+            android:layout_width="97dp"
+            android:layout_height="wrap_content"
+            android:text="@string/Ellen"/>
+
+        <TextView
+            android:id="@+id/text_divider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/divider"
+            android:textColor="@color/gray" />
+
+        <TextView
+            android:id="@+id/text_david"
+            android:layout_width="97dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/david" />
+
+        <TextView
+            android:id="@+id/text_divider1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/divider"
+            android:textColor="@color/gray" />
+
+        <TextView
+            android:id="@+id/text_josh"
+            android:layout_width="97dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/josh"/>
+
+        <TextView
+            android:id="@+id/text_divider2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/divider"
+            android:textColor="@color/gray" />
+
+        <TextView
+            android:id="@+id/text_alex"
+            android:layout_width="97dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/alex" />
+
+        <TextView
+            android:id="@+id/text_divider4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/divider"
+            android:textColor="@color/gray" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linear_donation_sub"
+        android:layout_below="@+id/linear_donationView"
+        android:layout_marginLeft="14dp"
+        android:text="@string/amount_2"
+        android:textColor="@color/green" />
+
+    <TextView
+        android:id="@+id/text_dollar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/text_amount"
+        android:layout_below="@+id/linear_bitmap"
+        android:text="@string/dollar_amount"
+        android:textColor="@color/green" />
+
+    <TextView
+        android:id="@+id/text_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/text_amount"
+        android:layout_alignBottom="@+id/text_amount"
+        android:layout_alignRight="@+id/linear_donation_sub"
+        android:layout_marginRight="20dp"
+        android:text="@string/date_donation" />
+
+</RelativeLayout>

@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/card" >
+
+    <RelativeLayout
+        android:id="@+id/image_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/card_image"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:background="@color/card_shadow"
+            android:contentDescription="@string/community_image"
+            android:paddingBottom="1dp" />
+
+        <TextView
+            android:id="@+id/add_photos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/add_photos"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:visibility="gone" />
+    </RelativeLayout>
+     
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:layout_below="@id/image_container" >
+
+        <TextView
+            android:id="@+id/card_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/black" />
+        
+        <ImageButton
+            android:id="@+id/card_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="0dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="@string/community_menu"
+            android:padding="11dp"
+            android:src="@drawable/overflow_menu" />
+
+        <Button
+            android:id="@+id/donate_money"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_alignBottom="@+id/card_menu"
+            android:layout_alignLeft="@+id/card_text"
+            android:drawableLeft="@drawable/pig_icon"
+            android:gravity="center"
+            android:minWidth="75dp"
+            android:text="Donate"
+            android:onClick="onDonate"
+            android:background="@color/white"
+            android:textColor="@color/green"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+          
+    </RelativeLayout>
+
+</RelativeLayout>

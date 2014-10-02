@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="side_menu_titles">
+        <item>My Profile</item>
+        <item>Logout</item>
+        <item>Settings</item>
+    </string-array>
+    
+    <string-array name="side_menu_drawables">
+        <item>@drawable/profile</item>
+        <item>@drawable/logout</item>
+        <item>@drawable/settings</item>
+    </string-array>
+    
+</resources>

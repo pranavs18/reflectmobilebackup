@@ -1,0 +1,52 @@
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg"
+        tools:context="com.reflectmobile.activity.MomentActivity"
+        tools:ignore="MergeRootFrame" >
+
+        <TextView
+            android:id="@+id/no_photos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/no_photos"
+            android:textSize="18sp"
+            android:visibility="gone" 
+            android:layout_margin="10dp" />
+
+        <GridView
+            android:id="@+id/parentView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="3dp"
+            android:gravity="left"
+            android:horizontalSpacing="3dp"
+            android:numColumns="3"
+            android:orientation="vertical"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="3dp" >
+        </GridView>
+    </RelativeLayout>
+
+    <!-- The navigation drawer -->
+
+    <ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/side_menu_bg"
+        android:choiceMode="singleChoice"
+        android:divider="@color/side_menu_divider"
+        android:dividerHeight="1dp" >
+    </ListView>
+
+</android.support.v4.widget.DrawerLayout>

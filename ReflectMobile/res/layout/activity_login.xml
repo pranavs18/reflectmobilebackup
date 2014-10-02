@@ -1,0 +1,103 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.reflectmobile.activity.LoginActivity"
+    tools:ignore="MergeRootFrame" >
+
+    <View
+        android:id="@+id/top_panel"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:background="@drawable/rectangle_green" />
+
+    <ImageView
+        android:id="@+id/reflect_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/top_panel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/logo"
+        android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/top_panel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="85dp"
+        android:text="@string/welcome_to_reflect"
+        android:textColor="#eee599"
+        android:textSize="21sp" />
+
+    <View
+        android:id="@+id/yellow_margin"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/top_panel"
+        android:background="@drawable/rectangle_yellow" />
+
+    <RelativeLayout
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/yellow_margin"
+        android:background="@drawable/bg" >
+
+        <LinearLayout
+            android:id="@+id/layout_log_in_google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120dp"
+            android:background="@color/red" >
+
+            <Button
+                android:id="@+id/button_log_in_google"
+                android:layout_width="288dp"
+                android:layout_height="50dp"
+                android:background="?android:selectableItemBackground"
+                android:drawableLeft="@drawable/google"
+                android:onClick="onClickLogInGoogle"
+                android:paddingLeft="25dp"
+                android:text="@string/log_in_google"
+                android:textSize="17sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text_or2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_log_in_google"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:text="@string/or"
+            android:textColor="#000000"
+            android:textSize="17sp" />
+
+        <LinearLayout
+            android:id="@+id/layout_log_in_reflect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_log_in_google"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:background="@color/green" >
+
+            <Button
+                android:id="@+id/button_log_in_reflect"
+                android:layout_width="288dp"
+                android:layout_height="50dp"
+                android:background="?android:selectableItemBackground"
+                android:drawableLeft="@drawable/action_bar_icon_logo"
+                android:onClick="onClickLogInReflect"
+                android:paddingLeft="15dp"
+                android:text="@string/log_in_with_reflect"
+                android:textSize="17sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

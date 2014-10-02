@@ -1,0 +1,332 @@
+package com.reflectmobile.widget;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.Queue;
+
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Point;
+
+public class Segmentation {
+	private Bitmap originalBitmap;
+	private int fillColor = 0;
+	private int lineColor = Color.GREEN;
+	private int dotColor = Color.BLUE;
+	private int squareColor = Color.YELLOW;
+	private int width;
+	private int height;
+
+	public Segmentation(Bitmap bitmap) {
+		this.originalBitmap = bitmap;
+		this.width = originalBitmap.getWidth();
+		this.height = originalBitmap.getHeight();
+	}
+
+	public Bitmap segmentation(int x, int y) {
+		// Build pixel buffer
+		int[] pixelBuffer = new int[width * height];
+		originalBitmap.getPixels(pixelBuffer, 0, width, 0, 0, width, height);
+		// Flood fill
+		int threshold = 10;
+		ArrayList<Point> rawPointList = floodFill(x, y, threshold, pixelBuffer);
+		// Convex hull
+		ArrayList<Point> convevHullPointList = findConvexHull(rawPointList);
+
+		// Create result image
+		Bitmap resultBitmap = Bitmap.createBitmap(width, height,
+				Bitmap.Config.ARGB_8888);
+		resultBitmap.setPixels(pixelBuffer, 0, width, 0, 0, width, height);
+
+		// Draw dots
+		drawDots(resultBitmap, convevHullPointList);
+
+		// Draw lines
+		drawLines(resultBitmap, convevHullPointList);
+
+		// Draw square
+		drawSquare(resultBitmap, convevHullPointList);
+		return resultBitmap;
+	}
+
+	/**
+	 * Fills the specified point on the bitmap with the currently selected fill
+	 * color.
+	 * 
+	 * @param x
+	 * @param y
+	 * @param threshold
+	 */
+	public ArrayList<Point> floodFill(int x, int y, int threshold,
+			int[] pixelBuffer) {
+		boolean[] isVisited = new boolean[pixelBuffer.length];
+		Queue<FloodFillRange> queue = new LinkedList<Segmentation.FloodFillRange>();
+		ArrayList<Point> pointList = new ArrayList<Point>();
+		int startColor = pixelBuffer[(width * y) + x];
+
+		// Add starting point
+		floodFillHelper(x, y, isVisited, startColor, threshold, queue,
+				pointList, pixelBuffer);
+
+		while (queue.size() > 0) {
+			FloodFillRange range = queue.remove();
+			// Search up
+			int curY = range.Y - 1; // the location to check/fill on the left
+			int index = (width * (range.Y - 1)) + range.startX;
+			for (int i = range.startX; i <= range.endX; i++) {
+				// Start up
+				// if we're not above the top of the bitmap and the pixel above
+				// this one is within the color tolerance
+				if (curY >= 0
+						&& !isVisited[index]
+						&& isCurrentPointInRange(startColor,
+								pixelBuffer[index], threshold)) {
+					floodFillHelper(i, curY, isVisited, startColor, threshold,
+							queue, pointList, pixelBuffer);
+				}
+				index++;
+			}
+			// Search down
+			curY = range.Y + 1;
+			index = (width * (range.Y + 1)) + range.startX;
+			for (int i = range.startX; i <= range.endX; i++) {
+				if (curY <= height - 1
+						&& !isVisited[index]
+						&& isCurrentPointInRange(startColor,
+								pixelBuffer[index], threshold)) {
+					floodFillHelper(i, curY, isVisited, startColor, threshold,
+							queue, pointList, pixelBuffer);
+				}
+			}
+			index++;
+		}
+		return pointList;
+	}
+
+	/**
+	 * Finds the further most left and right boundaries of the fill area, on a
+	 * given y coordinate, starting from a given x coordinate, filling as it
+	 * goes. Adds the resulting horizontal range to the queue of floodfill
+	 * ranges, to be processed in the main loop.
+	 * 
+	 * @param x
+	 * @param y
+	 * @param isVisited
+	 * @param startColor
+	 * @param threshold
+	 * @param queue
+	 */
+	public void floodFillHelper(int x, int y, boolean[] isVisited,
+			int startColor, int threshold, Queue<FloodFillRange> queue,
+			ArrayList<Point> pointList, int[] pixelBuffer) {
+		int curX = x; // the location to check/fill on the left
+		int index = (width * y) + x;
+		// Search left
+		while (true) {
+			// Check in range and unvisited
+			if (curX < 0 || isVisited[index]) {
+				break;
+			}
+			// Check in color threshold
+			else if (!isCurrentPointInRange(startColor, pixelBuffer[index],
+					threshold)) {
+				pixelBuffer[index] = fillColor;
+				break;
+			}
+			pointList.add(new Point(curX, y));
+			// mark that this pixel has already been checked and filled
+			isVisited[index] = true;
+			// Move
+			curX--;
+			index--;
+		}
+		int left = curX + 1;
+
+		// Search right
+		curX = x + 1; // the location to check/fill on the right
+		index = (width * y) + x + 1;
+		while (true) {
+			// Check in range and unvisited
+			if (curX >= width || isVisited[index]) {
+				break;
+			}
+			// Check in color threshold
+			else if (!isCurrentPointInRange(startColor, pixelBuffer[index],
+					threshold)) {
+				pixelBuffer[index] = fillColor;
+				break;
+			}
+			pointList.add(new Point(curX, y));
+			// mark that this pixel has already been checked and filled
+			isVisited[index] = true;
+			// Move
+			curX++;
+			index++;
+		}
+		int right = curX - 1;
+		// add range to queue
+		queue.add(new FloodFillRange(left, right, y));
+		return;
+	}
+
+	// Sees if a pixel is within the color tolerance range.
+	protected boolean isCurrentPointInRange(int startColor, int currentColor,
+			int threshold) {
+		int currentRed = (currentColor >>> 16) & 0xff;
+		int currentGreen = (currentColor >>> 8) & 0xff;
+		int currentBlue = currentColor & 0xff;
+		int startRed = (startColor >>> 16) & 0xff;
+		int startGreen = (startColor >>> 8) & 0xff;
+		int startBlue = startColor & 0xff;
+
+		return (currentRed >= (startRed - threshold)
+				&& currentRed <= (startRed + threshold)
+				&& currentGreen >= (startGreen - threshold)
+				&& currentGreen <= (startGreen + threshold)
+				&& currentBlue >= (startBlue - threshold) && currentBlue <= (startBlue + threshold));
+	}
+
+	// Represents a linear range to be filled and branched from.
+	protected class FloodFillRange {
+		public int startX;
+		public int endX;
+		public int Y;
+
+		public FloodFillRange(int startX, int endX, int y) {
+			this.startX = startX;
+			this.endX = endX;
+			this.Y = y;
+		}
+	}
+
+	public ArrayList<Point> findConvexHull(ArrayList<Point> points) {
+		@SuppressWarnings("unchecked")
+		ArrayList<Point> xSorted = (ArrayList<Point>) points.clone();
+		Collections.sort(xSorted, new Comparator<Point>() {
+
+			@Override
+			public int compare(Point lhs, Point rhs) {
+				return lhs.x - rhs.x;
+			}
+		});
+
+		int n = xSorted.size();
+
+		Point[] lUpper = new Point[n];
+
+		lUpper[0] = xSorted.get(0);
+		lUpper[1] = xSorted.get(1);
+
+		int lUpperSize = 2;
+
+		for (int i = 2; i < n; i++) {
+			lUpper[lUpperSize] = xSorted.get(i);
+			lUpperSize++;
+
+			while (lUpperSize > 2
+					&& !rightTurn(lUpper[lUpperSize - 3],
+							lUpper[lUpperSize - 2], lUpper[lUpperSize - 1])) {
+				// Remove the middle point of the three last
+				lUpper[lUpperSize - 2] = lUpper[lUpperSize - 1];
+				lUpperSize--;
+			}
+		}
+
+		Point[] lLower = new Point[n];
+
+		lLower[0] = xSorted.get(n - 1);
+		lLower[1] = xSorted.get(n - 2);
+
+		int lLowerSize = 2;
+
+		for (int i = n - 3; i >= 0; i--) {
+			lLower[lLowerSize] = xSorted.get(i);
+			lLowerSize++;
+
+			while (lLowerSize > 2
+					&& !rightTurn(lLower[lLowerSize - 3],
+							lLower[lLowerSize - 2], lLower[lLowerSize - 1])) {
+				// Remove the middle point of the three last
+				lLower[lLowerSize - 2] = lLower[lLowerSize - 1];
+				lLowerSize--;
+			}
+		}
+
+		ArrayList<Point> result = new ArrayList<Point>();
+
+		for (int i = 0; i < lUpperSize; i++) {
+			result.add(lUpper[i]);
+		}
+
+		for (int i = 1; i < lLowerSize - 1; i++) {
+			result.add(lLower[i]);
+		}
+
+		return result;
+	}
+
+	private boolean rightTurn(Point a, Point b, Point c) {
+		return (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x) > 0;
+	}
+
+	private void drawLines(Bitmap bitmap, ArrayList<Point> pointList) {
+		if (pointList.size() <= 3) {
+			return;
+		}
+		Paint paint = new Paint();
+		paint.setColor(lineColor);
+		paint.setStyle(Paint.Style.FILL);
+		paint.setStrokeWidth(10);
+		Canvas canvas = new Canvas(bitmap);
+
+		Point prevPoint = pointList.get(0);
+		for (int i = 1; i <= pointList.size() - 1; i++) {
+			Point currentPoint = pointList.get(i);
+			canvas.drawLine(prevPoint.x, prevPoint.y, currentPoint.x,
+					currentPoint.y, paint);
+			prevPoint = currentPoint;
+		}
+		return;
+	}
+
+	private void drawDots(Bitmap bitmap, ArrayList<Point> pointList) {
+		for (Point point : pointList) {
+			int left = Math.max(0, point.x - 5);
+			int right = Math.min(point.x + 5, bitmap.getWidth() - 1);
+			int top = Math.max(0, point.y - 5);
+			int bottom = Math.min(point.y + 5, bitmap.getHeight() - 1);
+			for (int i = left; i <= right; i++) {
+				for (int j = top; j <= bottom; j++) {
+					bitmap.setPixel(i, j, dotColor);
+				}
+			}
+		}
+		return;
+	}
+
+	private void drawSquare(Bitmap bitmap, ArrayList<Point> pointList) {
+		// Calculate border
+		int left = width;
+		int right = 0;
+		int top = height;
+		int bottom = 0;
+		for (Point point : pointList) {
+			left = Math.min(left, point.x);
+			right = Math.max(right, point.x);
+			top = Math.min(top, point.y);
+			bottom = Math.max(bottom, point.y);
+		}
+
+		Paint paint = new Paint();
+		paint.setColor(squareColor);
+		paint.setStyle(Paint.Style.STROKE);
+		paint.setStrokeWidth(10);
+		Canvas canvas = new Canvas(bitmap);
+		canvas.drawRect(left, top, right, bottom, paint);
+		return;
+	}
+}

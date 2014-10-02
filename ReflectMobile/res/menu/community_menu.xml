@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_add_photo"
+        android:icon="@drawable/add_photo"
+        android:showAsAction="always"
+        android:title="@string/action_add_photo"/>
+    <item
+        android:id="@+id/action_add_moment"
+        android:icon="@drawable/action_bar_icon_plus"
+        android:showAsAction="never"
+        android:title="@string/action_add_moment"/>
+    <item
+        android:id="@+id/action_filter_moments"
+        android:icon="@drawable/filter"
+        android:showAsAction="never"
+        android:title="@string/action_filter_moments"/>
+    <item
+        android:id="@+id/action_invite"
+        android:icon="@drawable/camera"
+        android:showAsAction="never"
+        android:title="@string/action_invite_to_community"/>
+    
+     <item
+        android:id="@+id/action_campaign"
+        android:icon="@drawable/filter"
+        android:showAsAction="never"
+        android:title="Start Campaign"/>
+
+</menu>

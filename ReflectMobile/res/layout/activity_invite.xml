@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray"
+    android:orientation="vertical"
+    tools:context=".activity.sendInvite" >
+
+    <LinearLayout
+        android:id="@+id/invite_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/gray"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="80dp"
+            android:text="Email ID"
+            android:textColor="@color/green"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/yellow"
+            android:ems="10"
+            android:inputType="textEmailAddress" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="15dp"
+            android:text="Content"
+            android:textColor="@color/green"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/yellow"
+            android:ems="10"
+            android:inputType="textMultiLine" 
+            android:text="Dear Friend \nPlease click the link to join the community \n "
+            android:textColor="@color/green" >
+            "
+        </EditText>
+
+       <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:minWidth="80dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:onClick="btnInviteCancel"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableLeft="@drawable/cross_tiny"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:paddingBottom="8dp"
+        android:paddingLeft="30dp"
+        android:paddingTop="8dp"
+        android:text="@string/cancel"
+        android:textColor="@color/green"
+        android:textSize="14sp"
+        android:textStyle="bold"
+       
+         />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="116dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="135dp"
+            android:layout_marginTop="-50dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableLeft="@drawable/tick_disabled"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:onClick="btnInviteClick"
+            android:paddingBottom="8dp"
+            android:paddingLeft="30dp"
+            android:paddingTop="8dp"
+            android:text="Send Invite"
+            android:textColor="@color/green"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

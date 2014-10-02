@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_community"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/RelativeLayout1"
+    android:background="@drawable/card"
+    tools:context=".activity.CommunityActivity$CardListViewAdapter" >
+
+    <RelativeLayout
+        android:id="@+id/community_card_header"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/button_community_card_total_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/button_photos"
+            android:gravity="center"
+            android:minWidth="75dp"
+            android:text="@string/number_of_photos"
+            android:textColor="@color/yellow"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/text_community_card_date"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_toLeftOf="@+id/button_community_card_total_photo"
+            android:gravity="center"
+            android:text="@string/moment_date"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/black"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/text_community_card_community_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toLeftOf="@id/text_community_card_date"
+            android:gravity="center_vertical|left"
+            android:singleLine="true"
+            android:text="@string/moment_name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/horizontal_listview_card_image_list"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@id/community_card_header"
+        android:background="@drawable/border_community_card"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="1dp"
+        android:paddingRight="1dp" >
+
+        <ImageView
+            android:id="@+id/card_photo_1"
+            android:layout_width="122dp"
+            android:layout_height="122dp"
+            android:background="@drawable/border_community_card_photo"
+            android:contentDescription="@string/add_photo" />
+
+        <ImageView
+            android:id="@+id/card_photo_2"
+            android:layout_width="122dp"
+            android:layout_height="122dp"
+            android:background="@drawable/border_community_card_photo"
+            android:contentDescription="@string/add_photo" />
+
+        <ImageView
+            android:id="@+id/card_photo_3"
+            android:layout_width="122dp"
+            android:layout_height="122dp"
+            android:background="@drawable/border_community_card_photo"
+            android:contentDescription="@string/add_photo" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/horizontal_listview_card_image_list" >
+
+        <ImageView
+            android:id="@+id/image_community_card_people"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:contentDescription="@string/people_icon"
+            android:src="@drawable/people" />
+
+        <TextView
+            android:id="@+id/text_community_card_people_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="6dp"
+            android:layout_toRightOf="@+id/image_community_card_people"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@android:color/black" />
+
+        <ImageButton
+            android:id="@+id/card_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="@string/community_menu"
+            android:padding="6dp"
+            android:src="@drawable/dots" />
+    </RelativeLayout>
+
+</RelativeLayout>

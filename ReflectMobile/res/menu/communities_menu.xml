@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_add_photo"
+        android:icon="@drawable/add_photo"
+        android:showAsAction="always"
+        android:title="@string/action_add_photo"/>
+    <item
+        android:id="@+id/action_add_community"
+        android:icon="@drawable/action_bar_icon_plus"
+        android:showAsAction="never"
+        android:title="@string/action_add_community">
+    </item>
+
+</menu>

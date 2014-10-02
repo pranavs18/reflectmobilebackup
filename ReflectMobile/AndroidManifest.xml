@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.reflectmobile"
+    android:versionCode="1"
+    android:versionName="0.1" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="20" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".activity.LoginActivity"
+            android:configChanges="orientation"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.reflectmobile.activity.BaseActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.CommunitiesActivity"
+            android:configChanges="orientation"
+            android:icon="@drawable/action_bar_icon_logo"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActionBarTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.reflectmobile.activity.BaseActivity" />
+        </activity>
+        <activity
+            android:name=".activity.CommunityActivity"
+            android:configChanges="orientation"
+            android:icon="@drawable/action_bar_icon_logo"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:theme="@style/ContextualActionBarTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.reflectmobile.activity.BaseActivity" />
+        </activity>
+        <activity
+            android:name=".activity.MomentActivity"
+            android:configChanges="orientation"
+            android:icon="@drawable/action_bar_icon_logo"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:theme="@style/ContextualActionBarTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.reflectmobile.activity.BaseActivity" />
+        </activity>
+        <activity
+            android:name=".activity.PhotoActivity"
+            android:configChanges="orientation"
+            android:icon="@drawable/action_bar_icon_logo"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:theme="@style/ContextualActionBarTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.reflectmobile.activity.BaseActivity" />
+        </activity>
+        <activity
+            android:name=".activity.GalleryActivity"
+            android:configChanges="orientation"
+            android:icon="@drawable/action_bar_icon_logo"
+            android:label="@string/title_photo_gallery"
+            android:screenOrientation="portrait"
+            android:theme="@style/ContextualActionBarTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.reflectmobile.activity.BaseActivity" />
+        </activity>
+        <activity
+            android:name=".activity.AddCommunityActivity"
+            android:configChanges="orientation"
+            android:icon="@drawable/action_bar_icon_logo"
+            android:label="@string/add_new_community"
+            android:screenOrientation="portrait"
+            android:theme="@style/ContextualActionBarTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.reflectmobile.activity.BaseActivity" />
+        </activity>
+        <activity
+            android:name=".activity.AddStoryActivity"
+            android:configChanges="orientation"
+            android:icon="@drawable/action_bar_icon_logo"
+            android:label="@string/add_new_story"
+            android:screenOrientation="portrait"
+            android:theme="@style/ContextualActionBarTheme"
+            android:windowSoftInputMode="stateVisible" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.reflectmobile.activity.BaseActivity" />
+        </activity>
+        <activity
+            android:name=".activity.AddDetailActivity"
+            android:configChanges="orientation"
+            android:icon="@drawable/action_bar_icon_logo"
+            android:label="@string/add_new_detail"
+            android:screenOrientation="portrait"
+            android:theme="@style/ContextualActionBarTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.reflectmobile.activity.BaseActivity" />
+        </activity>
+        <activity
+            android:name=".activity.AddMomentActivity"
+            android:configChanges="orientation"
+            android:icon="@drawable/action_bar_icon_logo"
+            android:label="@string/add_new_moment"
+            android:screenOrientation="portrait"
+            android:theme="@style/ContextualActionBarTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.reflectmobile.activity.BaseActivity" />
+        </activity>
+        <activity
+            android:name=".activity.AddPhotosActivity"
+            android:configChanges="orientation"
+            android:icon="@drawable/action_bar_icon_logo"
+            android:label="@string/add_photos"
+            android:screenOrientation="portrait"
+            android:theme="@style/ContextualActionBarTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.reflectmobile.activity.BaseActivity" />
+        </activity>
+        <activity
+            android:name=".activity.AddSoundActivity"
+            android:configChanges="orientation"
+            android:icon="@drawable/action_bar_icon_logo"
+            android:label="@string/add_new_sound"
+            android:screenOrientation="portrait"
+            android:theme="@style/ContextualActionBarTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.reflectmobile.activity.BaseActivity" />
+        </activity>
+        <activity
+            android:name=".activity.NotificationActivity"
+            android:configChanges="orientation"
+            android:icon="@drawable/action_bar_icon_logo"
+            android:label="Notification Activity"
+            android:parentActivityName="com.reflectmobile.activity.BaseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ContextualActionBarTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.reflectmobile.activity.BaseActivity" />
+        </activity>
+        <activity
+            android:name=".activity.StartCampaignActivity"
+            android:configChanges="orientation"
+            android:icon="@drawable/action_bar_icon_logo"
+            android:label="Start Campaign Activity"
+            android:parentActivityName="com.reflectmobile.activity.BaseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ContextualActionBarTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.reflectmobile.activity.BaseActivity" />
+        </activity>
+        <activity
+            android:name=".activity.DonationActivity"
+            android:configChanges="orientation"
+            android:icon="@drawable/action_bar_icon_logo"
+            android:label="Donation Activity"
+            android:parentActivityName="com.reflectmobile.activity.BaseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ContextualActionBarTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.reflectmobile.activity.BaseActivity" />
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/app_id" />
+
+        <activity
+            android:name="com.facebook.LoginActivity"
+            android:label="@string/app_name" >
+        </activity>
+    </application>
+
+</manifest>
